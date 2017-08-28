@@ -25,9 +25,7 @@ idx = zeros(size(X,1), 1);
 for i = 1:size(X, 1)
 	minimum_distance = inf;   %distance to infinity
 	for j = 1:K
-		distance = sum((X(i,:) - centroids(j,:)).^2); 
-		%distance = X(i,:) - centroids(j,:);
-		%distance = distance * distance';
+		distance = sum((X(i,:) - centroids(j,:)).^2); %this is equivalent to -->	distance = X(i,:) - centroids(j,:);distance = distance * distance'; 
 		if distance < minimum_distance
 			minimum_distance = distance;
 			idx(i) = j;

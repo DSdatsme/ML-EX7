@@ -26,8 +26,17 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
-
-
+for i = 1:K
+	sum = zeros(1,n);
+	number_of_elements_in_a_cluster = 0;
+	for j = 1:m
+		if idx(j) == i
+			sum += X(j, :);
+			number_of_elements_in_a_cluster += 1;
+		end
+	end
+	centroids(i, :) = sum ./ number_of_elements_in_a_cluster;
+end
 
 
 
